@@ -9,6 +9,7 @@ resource "aws_instance" "app" {
     volume_type = "gp3"
     delete_on_termination = true
   }
+  iam_instance_profile = aws_iam_instance_profile.case3-iam-instance-profile.name
   tags = {
     Name = "case3-application-server"
   }
