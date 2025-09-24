@@ -122,6 +122,12 @@ resource "aws_security_group" "case3-private-app" {
     tags = {
         Name = "case3-private-app"
     }
+    ingress {
+        from_port   = 22    
+        to_port     = 22
+        protocol    = "tcp"
+        security_groups = [ aws_security_group.case3-public-web.id ]
+    }
     ingress  {
         from_port   = 8080
         to_port     = 8080
